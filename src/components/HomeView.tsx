@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, ShieldCheck, Zap, Factory, Award, HelpCircle, CheckCircle } from 'lucide-react';
 import { BRANDS } from '../data/products';
+import SarvshresthLogo from './SarvshresthLogo';
 
 const HERO_IMAGE_SEQUENCE = [
   'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1600', // high-precision pipes and valves
@@ -159,6 +160,22 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
             className="lg:col-span-7 space-y-6 text-left" 
             id="hero-taglines"
           >
+            {/* Logo Brand Container particularly prominent in mobile views */}
+            <motion.div 
+              variants={itemVariants}
+              className="flex items-center gap-3 bg-zinc-900/60 p-2.5 rounded-xl border border-zinc-800/80 w-fit"
+            >
+              <div className="relative bg-zinc-950 p-[1.5px] rounded-[6px] flex items-center justify-center shrink-0 shadow-lg border border-zinc-800">
+                <div className="bg-white p-0.5 rounded-md flex items-center justify-center shadow-inner">
+                  <SarvshresthLogo size={28} />
+                </div>
+              </div>
+              <div className="flex flex-col text-left select-none">
+                <span className="font-display text-[11px] sm:text-xs font-black tracking-wider text-white leading-none">SARVSHRESTH SAMBHARAN</span>
+                <span className="font-mono text-[8px] text-amber-500 font-bold tracking-widest mt-1 uppercase">ISO 9001:2015 REGISTERED</span>
+              </div>
+            </motion.div>
+
             <motion.div 
               variants={itemVariants}
               className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full"

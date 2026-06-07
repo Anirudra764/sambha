@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import HomeView from './components/HomeView';
+import SarvshresthLogo from './components/SarvshresthLogo';
 import CatalogView from './components/CatalogView';
 import ProductDetailView from './components/ProductDetailView';
 import RfqView from './components/RfqView';
@@ -202,8 +203,13 @@ export default function App() {
           
           {/* Logo brand disclaimer */}
           <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="bg-amber-500 text-zinc-950 p-1.5 rounded font-bold font-sans">SS</div>
+            <div className="flex items-center gap-3">
+              {/* Premium micro logo container match top bar */}
+              <div className="relative bg-zinc-950 p-[1.5px] rounded-[6px] flex items-center justify-center shrink-0 shadow-xl border border-zinc-900">
+                <div className="bg-white p-0.5 rounded-md flex items-center justify-center shadow-inner">
+                  <SarvshresthLogo size={24} />
+                </div>
+              </div>
               <span className="font-display text-sm font-bold tracking-tight text-white">SARVSHRESTH SAMBHARAN</span>
             </div>
             <p className="font-sans font-light leading-relaxed max-w-sm text-zinc-400">

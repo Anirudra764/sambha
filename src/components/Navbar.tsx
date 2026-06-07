@@ -109,8 +109,10 @@ export default function Navbar({ currentView, onNavigate, quoteItems, onOpenTray
                 <div className="bg-white p-0.5 sm:p-1 rounded-md sm:rounded-lg flex items-center justify-center shadow-inner relative overflow-hidden group-hover:bg-amber-50/95 transition-colors duration-300">
                   {/* Subtle technical scale metric hatch inside */}
                   <div className="absolute inset-0 border border-zinc-100/50 rounded-md sm:rounded-lg pointer-events-none" />
-                  <SarvshresthLogo size={28} className="sm:hidden" />
-                  <div className="hidden sm:block">
+                  <div className="flex sm:hidden items-center justify-center">
+                    <SarvshresthLogo size={28} />
+                  </div>
+                  <div className="hidden sm:flex items-center justify-center">
                     <SarvshresthLogo size={36} />
                   </div>
                 </div>
@@ -126,17 +128,17 @@ export default function Navbar({ currentView, onNavigate, quoteItems, onOpenTray
             {/* Industrial Grade Global Sourcing Typographical block */}
             <div className="flex flex-col text-left select-none" id="nav-logo-text-wrap">
               <div className="flex items-baseline gap-0.5">
-                <span className="font-display text-[15px] sm:text-2xl font-black tracking-tight text-white leading-none whitespace-nowrap group-hover:text-amber-400 transition-colors duration-300">
+                <span className="font-display text-lg sm:text-2xl font-black tracking-tight text-white leading-none whitespace-nowrap group-hover:text-amber-400 transition-colors duration-300">
                   SARVSHRESTH
                 </span>
-                <span className="text-amber-500 font-black text-base sm:text-xl leading-none">.</span>
+                <span className="text-amber-500 font-black text-lg sm:text-xl leading-none">.</span>
               </div>
               <div className="flex items-center gap-1 sm:gap-1.5 mt-1 sm:mt-2">
-                <span className="font-mono text-[9px] sm:text-[13px] font-black tracking-[0.08em] sm:tracking-[0.2em] text-zinc-300 group-hover:text-amber-400 transition-colors duration-300 leading-none uppercase whitespace-nowrap">
+                <span className="font-mono text-[10px] sm:text-[13px] font-black tracking-[0.12em] sm:tracking-[0.2em] text-zinc-300 group-hover:text-amber-400 transition-colors duration-300 leading-none uppercase whitespace-nowrap">
                   SAMBHARAN
                 </span>
                 <span className="hidden sm:inline h-3.5 w-[1px] bg-zinc-800" />
-                <span className="hidden sm:inline font-display font-medium text-[9px] sm:text-[10px] text-zinc-400 tracking-wider uppercase whitespace-nowrap leading-none">
+                <span className="hidden sm:inline font-display font-medium text-[9px] sm:text-[10px] text-zinc-450 text-zinc-400 tracking-wider uppercase whitespace-nowrap leading-none">
                   ISO 9001:2015
                 </span>
               </div>
@@ -307,9 +309,11 @@ export default function Navbar({ currentView, onNavigate, quoteItems, onOpenTray
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 flex border-t border-zinc-900 bg-zinc-950/98 backdrop-blur-md justify-around text-[10px] font-display text-zinc-400 font-bold py-2.5 shadow-[0_-10px_25px_rgba(0,0,0,0.6)] h-16 items-center">
         <button 
           onClick={() => onNavigate('home')} 
-          className={`flex flex-col items-center gap-1 w-full transition-colors ${currentView === 'home' ? 'text-amber-400' : 'text-zinc-400 hover:text-zinc-200'}`}
+          className={`flex flex-col items-center gap-1 w-full transition-colors ${currentView === 'home' ? 'text-amber-400 font-black' : 'text-zinc-400 hover:text-zinc-200'}`}
         >
-          <Home className="w-4 h-4" />
+          <div className="relative bg-white p-[1px] rounded-[5px] flex items-center justify-center shadow-inner shrink-0 border border-zinc-900 w-5.5 h-5.5 overflow-hidden">
+            <SarvshresthLogo size={15} />
+          </div>
           <span className="uppercase tracking-wider">Home</span>
         </button>
         <button 
