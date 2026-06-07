@@ -14,6 +14,16 @@ export default function CatalogView({ onSelectProduct, onAddToQuote, quoteItems 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All Components');
   const [selectedManufacturer, setSelectedManufacturer] = useState('All Manufacturers');
+  const [isFiltersExpanded, setIsFiltersExpanded] = useState(false);
+
+  // Calculate active filter states count
+  const activeFiltersCount = useMemo(() => {
+    let count = 0;
+    if (searchTerm.trim() !== '') count++;
+    if (selectedCategory !== 'All Components') count++;
+    if (selectedManufacturer !== 'All Manufacturers') count++;
+    return count;
+  }, [searchTerm, selectedCategory, selectedManufacturer]);
 
   // Interactive search + filter calculations
   const filteredProducts = useMemo(() => {
@@ -66,11 +76,32 @@ export default function CatalogView({ onSelectProduct, onAddToQuote, quoteItems 
         </motion.p>
       </div>
 
+      {/* Mobile Toggle Filters Button */}
+      <div className="lg:hidden flex items-center justify-between p-4 bg-zinc-900 border border-zinc-800 rounded-xl" id="mobile-filter-trigger">
+        <div className="flex flex-col text-left">
+          <span className="font-display text-xs font-bold text-white">Filter & Search Options</span>
+          <span className="text-[10px] text-zinc-400 mt-0.5 font-sans">
+            {activeFiltersCount > 0 ? `${activeFiltersCount} filters active` : 'Quick search / Categories / Authorized brands'}
+          </span>
+        </div>
+        <button
+          onClick={() => setIsFiltersExpanded(!isFiltersExpanded)}
+          className={`flex items-center gap-1.5 px-3.5 py-2 border rounded-lg text-xs font-bold transition-all cursor-pointer ${
+            isFiltersExpanded || activeFiltersCount > 0
+              ? 'bg-amber-500 border-amber-500 text-zinc-950 shadow-md shadow-amber-500/10'
+              : 'bg-zinc-950 border-zinc-800 text-zinc-300 hover:text-white'
+          }`}
+        >
+          <SlidersHorizontal className="w-3.5 h-3.5" />
+          {isFiltersExpanded ? 'Hide' : 'Show Filters'}
+        </button>
+      </div>
+
       {/* Grid containing filters + results layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mt-2 lg:mt-0">
         
         {/* Left filter side controls panel */}
-        <div className="space-y-6 lg:self-start lg:sticky lg:top-20" id="catalog-filters">
+        <div className={`space-y-6 lg:self-start lg:sticky lg:top-20 ${isFiltersExpanded ? 'block' : 'hidden lg:block'}`} id="catalog-filters">
           
           {/* Header */}
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 shadow-sm space-y-4">

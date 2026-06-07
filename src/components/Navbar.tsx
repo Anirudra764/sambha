@@ -94,46 +94,49 @@ export default function Navbar({ currentView, onNavigate, quoteItems, onOpenTray
           <motion.div 
             whileHover={{ scale: 1.015 }}
             whileTap={{ scale: 0.985 }}
-            className="flex items-center gap-4 cursor-pointer group"
+            className="flex items-center gap-2.5 sm:gap-4 cursor-pointer group"
             onClick={() => onNavigate('home')}
             id="nav-logo"
           >
             {/* Ultra-premium industrial logo icon container with dynamic multi-layered gradients and active responsive backlight glow */}
-            <div className="relative flex items-center justify-center" id="nav-logo-icon-wrap">
+            <div className="relative flex items-center justify-center shrink-0" id="nav-logo-icon-wrap">
               {/* Animated high-tech halo rings */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-amber-500 via-emerald-500 to-amber-600 rounded-xl blur-md opacity-25 group-hover:opacity-60 group-hover:blur-lg transition-all duration-500" />
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500/80 to-emerald-500/80 rounded-xl opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -inset-1 sm:-inset-1.5 bg-gradient-to-r from-amber-500 via-emerald-500 to-amber-600 rounded-lg sm:rounded-xl blur-sm sm:blur-md opacity-25 group-hover:opacity-60 group-hover:blur-lg transition-all duration-500" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500/80 to-emerald-500/80 rounded-lg sm:rounded-xl opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
               
               {/* Inner metallic/architectural chassis */}
-              <div className="relative bg-zinc-950 p-[3px] rounded-[10px] flex items-center justify-center shadow-2xl">
-                <div className="bg-white p-1 rounded-lg flex items-center justify-center shadow-inner relative overflow-hidden group-hover:bg-amber-50/95 transition-colors duration-300">
+              <div className="relative bg-zinc-950 p-[2px] sm:p-[3px] rounded-[8px] sm:rounded-[10px] flex items-center justify-center shadow-2xl">
+                <div className="bg-white p-0.5 sm:p-1 rounded-md sm:rounded-lg flex items-center justify-center shadow-inner relative overflow-hidden group-hover:bg-amber-50/95 transition-colors duration-300">
                   {/* Subtle technical scale metric hatch inside */}
-                  <div className="absolute inset-0 border border-zinc-100/50 rounded-lg pointer-events-none" />
-                  <SarvshresthLogo size={36} />
+                  <div className="absolute inset-0 border border-zinc-100/50 rounded-md sm:rounded-lg pointer-events-none" />
+                  <SarvshresthLogo size={28} className="sm:hidden" />
+                  <div className="hidden sm:block">
+                    <SarvshresthLogo size={36} />
+                  </div>
                 </div>
               </div>
               
               {/* Accent micro status indicator pin */}
-              <span className="absolute -top-1 -right-0.5 flex h-2 w-2">
+              <span className="absolute -top-0.5 -right-0.5 flex h-1.5 w-1.5 sm:h-2 sm:w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-emerald-500"></span>
               </span>
             </div>
 
             {/* Industrial Grade Global Sourcing Typographical block */}
             <div className="flex flex-col text-left select-none" id="nav-logo-text-wrap">
               <div className="flex items-baseline gap-0.5">
-                <span className="font-display text-xl sm:text-2xl font-black tracking-tight text-white leading-none whitespace-nowrap group-hover:text-amber-400 transition-colors duration-300">
+                <span className="font-display text-[15px] sm:text-2xl font-black tracking-tight text-white leading-none whitespace-nowrap group-hover:text-amber-400 transition-colors duration-300">
                   SARVSHRESTH
                 </span>
-                <span className="text-amber-500 font-black text-xl leading-none">.</span>
+                <span className="text-amber-500 font-black text-base sm:text-xl leading-none">.</span>
               </div>
-              <div className="flex items-center gap-1.5 mt-2">
-                <span className="font-mono text-[11px] sm:text-[13px] font-black tracking-[0.16em] sm:tracking-[0.2em] text-zinc-300 group-hover:text-amber-400 transition-colors duration-300 leading-none uppercase whitespace-nowrap">
+              <div className="flex items-center gap-1 sm:gap-1.5 mt-1 sm:mt-2">
+                <span className="font-mono text-[9px] sm:text-[13px] font-black tracking-[0.08em] sm:tracking-[0.2em] text-zinc-300 group-hover:text-amber-400 transition-colors duration-300 leading-none uppercase whitespace-nowrap">
                   SAMBHARAN
                 </span>
-                <span className="h-3.5 w-[1px] bg-zinc-800" />
-                <span className="font-display font-medium text-[9px] sm:text-[10px] text-zinc-450 text-zinc-400 tracking-wider uppercase whitespace-nowrap leading-none">
+                <span className="hidden sm:inline h-3.5 w-[1px] bg-zinc-800" />
+                <span className="hidden sm:inline font-display font-medium text-[9px] sm:text-[10px] text-zinc-400 tracking-wider uppercase whitespace-nowrap leading-none">
                   ISO 9001:2015
                 </span>
               </div>
@@ -250,7 +253,7 @@ export default function Navbar({ currentView, onNavigate, quoteItems, onOpenTray
             </motion.button>
 
             {/* Helpline Section & Authentication button */}
-            <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-3">
               {currentUser ? (
                 <div className="flex items-center gap-3 pl-3 border-l border-zinc-850" id="nav-user-profile">
                   <div className="hidden xl:flex flex-col text-left select-none max-w-[110px]">
@@ -300,8 +303,8 @@ export default function Navbar({ currentView, onNavigate, quoteItems, onOpenTray
         </div>
       </div>
 
-      {/* Mobile nav indicator bar / fallback links */}
-      <div className="md:hidden flex border-t border-zinc-900 bg-zinc-950/98 backdrop-blur-md justify-around text-[10px] font-display text-zinc-400 font-bold py-2">
+      {/* Premium Ergonomic Mobile bottom docked navigation bar */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 flex border-t border-zinc-900 bg-zinc-950/98 backdrop-blur-md justify-around text-[10px] font-display text-zinc-400 font-bold py-2.5 shadow-[0_-10px_25px_rgba(0,0,0,0.6)] h-16 items-center">
         <button 
           onClick={() => onNavigate('home')} 
           className={`flex flex-col items-center gap-1 w-full transition-colors ${currentView === 'home' ? 'text-amber-400' : 'text-zinc-400 hover:text-zinc-200'}`}

@@ -37,7 +37,7 @@ export default function QuoteTray({
             exit={{ scale: 0.8, y: 50, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-40 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 text-white shadow-2xl hover:shadow-zinc-500/5 px-4.5 py-3.5 rounded-xl flex items-center gap-3 cursor-pointer group"
+            className="fixed bottom-20 sm:bottom-6 right-6 z-40 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 text-white shadow-2xl hover:shadow-zinc-500/5 px-4.5 py-3.5 rounded-xl flex items-center gap-3 cursor-pointer group"
             id="floating-quote-tray-trigger"
           >
             <div className="relative">

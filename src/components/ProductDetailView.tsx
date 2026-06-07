@@ -193,7 +193,10 @@ export default function ProductDetailView({ product, onBack, onAddToQuote, quote
                     key={item.id}
                     onMouseEnter={() => setHoveredBlueprintItem(item.id)}
                     onMouseLeave={() => setHoveredBlueprintItem(null)}
-                    className="space-y-1 p-1 rounded transition-colors cursor-help duration-200 hover:bg-zinc-900"
+                    onClick={() => {
+                      setHoveredBlueprintItem(hoveredBlueprintItem === item.id ? null : item.id);
+                    }}
+                    className="space-y-1 p-1 rounded transition-colors cursor-help duration-200 hover:bg-zinc-900 active:bg-zinc-805 active:bg-zinc-800"
                   >
                     <div className="flex justify-between items-center text-zinc-455 text-zinc-400 hover:text-white transition-colors">
                       <span className="font-medium text-zinc-300">[{item.id.toString().padStart(2, '0')}] {item.name}</span>
