@@ -1,0 +1,6 @@
+{
+  "name": "Sarvshresth Sambharan",
+  "description": "Professional Industrial Supply & Equipment Procurement Portal representing global manufactures (valves, bearings, motors, sensors, pumps, electrical relays). Includes dynamic Components Catalog, technical detail views with blueprint alignment layouts, and an integrated Request for Quotation (RFQ) checklist pipeline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
